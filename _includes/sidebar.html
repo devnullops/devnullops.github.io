@@ -1,0 +1,53 @@
+<!-- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="{{ site.BASE_PATH }}/">
+		<img src="http://i.imgur.com/Jw777Pb.png" width="100%" height="100%" />
+	</a>
+	<h3 class="title">
+        <a href="{{ site.BASE_PATH }}/">{{ site.title }}</a>
+    </h3>
+</header>
+
+<div id="bio" class="text-center">
+</div>
+<h3 class="text-center">Authors</h3>
+{% if site.authors %}
+{% for author in site.authors %}
+
+<div id="contact-list" class="text-center">
+	<img src='{{ author[1]["avatar"] }}' /><br />
+	{{ author[1]["display_name"] }}
+	<ul class="list-unstyled list-inline">
+		{% if author[1].web %}
+		<li>
+			<a class="btn btn-default btn-sm" href="{{ author[1].web }}">
+				<i class="fa fa-home fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		{% if author[1].github %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com/{{ author[1].github }}">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		{% if author[1].twitter %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com/{{ author[0].twitter }}">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		{% if author[1].email %}
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:{{ author[0].email }}">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+	</ul>
+</div>
+{% endfor %}
+{% endif %}
+<!-- sidebar.html end -->
